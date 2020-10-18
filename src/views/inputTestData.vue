@@ -57,7 +57,7 @@
         position:'absolute',
         top:'50%',
         transform: 'translateY(-35%) '+arrowRotation,
-        transition:'1s',
+        transition:'0.5s',
         right:0}"/>
       </a-menu-item>
       <a-menu-item key="preview">
