@@ -38,20 +38,20 @@
       </a-form-item>
       <a-form-item label="是否私有">
         <a-radio-group >
-          <a-radio :value="Yes">
+          <a-radio :value="'Yes'">
             Yes
           </a-radio>
-          <a-radio :value="No">
+          <a-radio :value="'No'">
             No
           </a-radio>
         </a-radio-group>
       </a-form-item>
       <a-form-item label="专题索引">
         <a-radio-group >
-          <a-radio :value="Yes">
+          <a-radio :value="'Yes'">
             现在
           </a-radio>
-          <a-radio :value="No">
+          <a-radio :value="'No'">
             完成后
           </a-radio>
         </a-radio-group>
