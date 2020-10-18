@@ -5,7 +5,7 @@ import router from './router'
 import 'ant-design-vue/dist/antd.css';
 import Antd from 'ant-design-vue';
 import './style/font.css'
-
+import './style/global.css'
 Vue.use(Antd);
 Vue.prototype.$axios = axios;
 

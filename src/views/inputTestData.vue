@@ -23,9 +23,8 @@
       box-sizing: content-box;
       border:3px white;
       box-shadow:0 0 5px #f00;
-      "
-      >
-        U
+      ">
+        <span style="font-weight:600 !important; ">U</span>
       </a-avatar>
       <span
           style="
@@ -45,59 +44,26 @@
         :open-keys.sync="openKeys"
         mode="inline"
         @click="handleClick"
+        @select="configSelection"
     >
-      <a-sub-menu key="sub1" @titleClick="titleClick">
-        <span slot="title"><a-icon type="mail" /><span>Navigation One</span></span>
-        <a-menu-item-group key="g1">
-          <template slot="title"> <a-icon type="qq" /><span>Item 1</span> </template>
-          <a-menu-item key="1">
-            Option 1
-          </a-menu-item>
-          <a-menu-item key="2">
-            Option 2
-          </a-menu-item>
-        </a-menu-item-group>
-        <a-menu-item-group key="g2" title="Item 2">
-          <a-menu-item key="3">
-            Option 3
-          </a-menu-item>
-          <a-menu-item key="4">
-            Option 4
-          </a-menu-item>
-        </a-menu-item-group>
-      </a-sub-menu>
-      <a-sub-menu key="sub2" @titleClick="titleClick">
-        <span slot="title"><a-icon type="appstore" /><span>Navigation Two</span></span>
-        <a-menu-item key="5">
-          Option 5
-        </a-menu-item>
-        <a-menu-item key="6">
-          Option 6
-        </a-menu-item>
-        <a-sub-menu key="sub3" title="Submenu">
-          <a-menu-item key="7">
-            Option 7
-          </a-menu-item>
-          <a-menu-item key="8">
-            Option 8
-          </a-menu-item>
-        </a-sub-menu>
-      </a-sub-menu>
-      <a-sub-menu key="sub4">
-        <span slot="title"><a-icon type="setting" /><span>Navigation Three</span></span>
-        <a-menu-item key="9">
-          Option 9
-        </a-menu-item>
-        <a-menu-item key="10">
-          Option 10
-        </a-menu-item>
-        <a-menu-item key="11">
-          Option 11
-        </a-menu-item>
-        <a-menu-item key="12">
-          Option 12
-        </a-menu-item>
-      </a-sub-menu>
+      <a-menu-item key="edit">
+        <a-icon type="highlight" />
+        试题编辑
+      </a-menu-item>
+      <a-menu-item key="configuration" >
+        <a-icon type="setting" />
+        试题配置
+        <a-icon type="right" :style="{
+        position:'absolute',
+        top:'50%',
+        transform: 'translateY(-35%) '+arrowRotation,
+        transition:'1s',
+        right:0}"/>
+      </a-menu-item>
+      <a-menu-item key="preview">
+        <a-icon type="eye" />
+        预览
+      </a-menu-item>
     </a-menu>
   </div>
 </template>
@@ -107,6 +73,7 @@ export default {
     return {
       current: ['mail'],
       openKeys: ['sub1'],
+      arrowRotation:' rotate(0deg)'
     };
   },
   watch: {
@@ -115,6 +82,14 @@ export default {
     },
   },
   methods: {
+    configSelection(e){
+      //箭头动效
+      if(e.key==='configuration')
+        this.arrowRotation=' rotate(-180deg)' ;
+        else if(this.arrowRotation===' rotate(-180deg)')
+          this.arrowRotation=' rotate(0deg)';
+
+    },
     handleClick(e) {
       console.log('click', e);
     },

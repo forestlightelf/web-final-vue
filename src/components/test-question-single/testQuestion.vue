@@ -100,14 +100,7 @@ data(){
 };
 </script>
 
-<style>
-*{
-  font-family: Round1;
-  font-size:15px;
-  font-weight:500;
-}
 
-</style>
 
 <style scoped>
 
